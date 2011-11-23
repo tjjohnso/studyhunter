@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project instance:</b>
+  <%= @study_session.project_instance_id %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @study_session.location_id %>
+</p>
+
+<p>
+  <b>Meeting date:</b>
+  <%= @study_session.meeting_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_study_session_path(@study_session) %> |
+<%= link_to 'Back', study_sessions_path %>

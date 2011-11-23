@@ -1,0 +1,37 @@
+<%= form_for(@project_instance) do |f| %>
+  <% if @project_instance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project_instance.errors.count, "error") %> prohibited this project_instance from being saved:</h2>
+
+      <ul>
+      <% @project_instance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :date_instantiated %><br />
+    <%= f.datetime_select :date_instantiated %>
+  </div>
+  <div class="field">
+    <%= f.label :date_last_modified %><br />
+    <%= f.datetime_select :date_last_modified %>
+  </div>
+  <div class="field">
+    <%= f.label :project_class_id %><br />
+    <%= f.text_field :project_class_id %>
+  </div>
+  <div class="field">
+    <%= f.label :owner_id %><br />
+    <%= f.text_field :owner_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

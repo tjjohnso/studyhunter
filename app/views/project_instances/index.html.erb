@@ -1,0 +1,31 @@
+<h1>Listing project_instances</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date instantiated</th>
+    <th>Date last modified</th>
+    <th>Project class</th>
+    <th>Owner</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project_instances.each do |project_instance| %>
+  <tr>
+    <td><%= project_instance.name %></td>
+    <td><%= project_instance.date_instantiated %></td>
+    <td><%= project_instance.date_last_modified %></td>
+    <td><%= project_instance.project_class_id %></td>
+    <td><%= project_instance.owner_id %></td>
+    <td><%= link_to 'Show', project_instance %></td>
+    <td><%= link_to 'Edit', edit_project_instance_path(project_instance) %></td>
+    <td><%= link_to 'Destroy', project_instance, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project instance', new_project_instance_path %>

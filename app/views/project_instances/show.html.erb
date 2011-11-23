@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project_instance.name %>
+</p>
+
+<p>
+  <b>Date instantiated:</b>
+  <%= @project_instance.date_instantiated %>
+</p>
+
+<p>
+  <b>Date last modified:</b>
+  <%= @project_instance.date_last_modified %>
+</p>
+
+<p>
+  <b>Project class:</b>
+  <%= @project_instance.project_class_id %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @project_instance.owner_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_instance_path(@project_instance) %> |
+<%= link_to 'Back', project_instances_path %>

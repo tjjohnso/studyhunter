@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project_class.name %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @project_class.course_id %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @project_class.creator_id %>
+</p>
+
+<p>
+  <b>Date created:</b>
+  <%= @project_class.date_created %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @project_class.deadline %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_class_path(@project_class) %> |
+<%= link_to 'Back', project_classes_path %>
