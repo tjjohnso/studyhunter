@@ -9,6 +9,8 @@ gem 'sqlite3', '1.3.3'
 # Be sure to run the following command: rails generate jquery:install -–ui -–force
 gem 'jquery-rails', '~> 1.0.13'
 gem 'gmaps4rails'
+gem 'nifty-generators'
+gem 'devise'
 
 group :development do
   gem 'rspec-rails', '2.6.1'
