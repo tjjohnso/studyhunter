@@ -17,8 +17,6 @@ Studyhunter::Application.routes.draw do
 
   resources :universities
 
-  resources :students
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

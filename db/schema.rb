@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(:version => 20111125165024) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.string   "address"
+    t.string   "street"
+    t.string   "city"
+    t.string   "country"
     t.float    "longitude"
     t.float    "latitude"
     t.boolean  "gmaps"

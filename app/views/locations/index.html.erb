@@ -3,10 +3,14 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Address</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>Country</th>
+    <!--
     <th>Longitude</th>
     <th>Latitude</th>
     <th>Gmaps</th>
+    -->
     <th>Amenities</th>
     <th>Overall rating</th>
     <th></th>
@@ -17,10 +21,14 @@
 <% @locations.each do |location| %>
   <tr>
     <td><%= location.name %></td>
-    <td><%= location.address %></td>
+    <td><%= location.street %></td>
+    <td><%= location.city %></td>
+    <td><%= location.country %></td>
+    <!--
     <td><%= location.longitude %></td>
     <td><%= location.latitude %></td>
     <td><%= location.gmaps %></td>
+    -->
     <td><%= location.amenities %></td>
     <td><%= location.overall_rating %></td>
     <td><%= link_to 'Show', location %></td>
