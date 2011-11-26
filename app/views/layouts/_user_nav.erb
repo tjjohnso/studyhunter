@@ -1,8 +1,14 @@
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. If this isn't you,
+<nav align="right" class="round">
+        <% if user_signed_in? %>
+        <ul>
+    Signed in as <li><%= current_user.email %>. If this isn't you,
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete  %>
+    </ul>
   <% else %>
-   <%= link_to "Sign up", new_user_registration_path  %> or <%= link_to "Sign In", new_user_session_path %></p>
+  <ul>
+  <li><%= link_to "Sign up", new_user_registration_path, :class => "signup_button round" %></li>
+  or 
+  <li><%= link_to "Sign In", new_user_session_path, :class => "signup_button round"  %></li></p>
+   </ul>
   <% end %>
-</div>
+</nav>
