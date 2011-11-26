@@ -5,7 +5,7 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', '1.3.3'
+gem 'sqlite3', '1.3.3', :group => :development
 # Be sure to run the following command: rails generate jquery:install -–ui -–force
 gem 'jquery-rails', '~> 1.0.13'
 gem 'gmaps4rails'
