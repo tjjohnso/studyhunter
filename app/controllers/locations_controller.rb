@@ -14,6 +14,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.xml
   def show
+    @json = Location.find(params[:id]).to_gmaps4rails
     @location = Location.find(params[:id])
 
     respond_to do |format|

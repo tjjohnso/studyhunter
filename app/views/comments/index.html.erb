@@ -1,4 +1,6 @@
-<h1>Listing comments</h1>
+<% title "Comments" %>
+
+<!--<h1>Listing comments</h1>-->
 
 <table>
   <tr>
@@ -19,7 +21,7 @@
     <td><%= comment.date_created %></td>
     <td><%= link_to 'Show', comment %></td>
     <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove', comment, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

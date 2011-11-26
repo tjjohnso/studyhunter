@@ -21,6 +21,10 @@ group :test do
   gem 'webrat', '0.7.1'
 end
 
+# Mocha was added when I ran the nifty scaffold, but I don't know if I really need it.
+# I'll install it for now.
+gem "mocha", :group => :test
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

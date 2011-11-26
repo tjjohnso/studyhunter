@@ -1,4 +1,6 @@
-<h1>Listing courses</h1>
+<% title "Courses" %>
+
+<!--<h1>Listing courses</h1>-->
 
 <table>
   <tr>
@@ -15,7 +17,7 @@
     <td><%= course.university_id %></td>
     <td><%= link_to 'Show', course %></td>
     <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Destroy', course, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove', course, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

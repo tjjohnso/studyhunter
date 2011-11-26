@@ -1,4 +1,6 @@
-<h1>Listing study_sessions</h1>
+<% title "Study Sessions" %>
+
+<!--<h1>Listing study_sessions</h1>-->
 
 <table>
   <tr>
@@ -17,7 +19,7 @@
     <td><%= study_session.meeting_date %></td>
     <td><%= link_to 'Show', study_session %></td>
     <td><%= link_to 'Edit', edit_study_session_path(study_session) %></td>
-    <td><%= link_to 'Destroy', study_session, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove', study_session, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
