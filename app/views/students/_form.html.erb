@@ -1,0 +1,16 @@
+<%= form_for @student do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :university_id %><br />
+    <%= f.text_field :university_id %>
+  </p>
+  <p>
+    <%= f.label :major %><br />
+    <%= f.text_field :major %>
+  </p>
+  <p>
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

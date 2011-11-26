@@ -1,0 +1,11 @@
+one:
+  student_id: 1
+  university_id: 1
+  major: MyString
+  rating: 1.5
+
+two:
+  student_id: 1
+  university_id: 1
+  major: MyString
+  rating: 1.5
