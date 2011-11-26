@@ -1,9 +1,15 @@
 class User < ActiveRecord::Base
+
   has_many :categorizations
   has_many :roles, :through => :categorizations
   has_one :student
 
-  accepts_nested_attributes_for :student, :roles, :categorizations, :allow_destroy => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+
+  accepts_nested_attributes_for :student, :allow_destroy => true
+  accepts_nested_attributes_for :roles, :allow_destroy => true
+  accepts_nested_attributes_for :categorizations, :allow_destroy => true
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -11,8 +17,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+                  :first_name, :last_name, :role_ids, :role_names, :user_id
 
-  validates :first_name, :presence => true
-  validates :last_name, :presence => true
+  def role_names
+    @roles = roles
+    @roles.map do |r|
+      r.name.downcase
+    end
+  end
 end

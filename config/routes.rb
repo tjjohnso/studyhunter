@@ -1,10 +1,12 @@
 Studyhunter::Application.routes.draw do
   resources :students
 
-  # I temporarily set the root page to be list of locations. We will change it later.
+  # I temporarily set the root page to be list of locations. We can change it later.
   root :to => "locations#index"
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  # devise_for :users
 
   resources :project_memberships
 

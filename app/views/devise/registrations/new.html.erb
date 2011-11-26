@@ -24,6 +24,19 @@
   <div class="field"><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div class="field">
+    <% for role in Role.all %>
+      <div>
+        <%= check_box_tag "user[role_ids][]", role.id, false, :disabled => !role.functional  %>
+        <% if role.functional %>
+          <%= label_tag role.name %>
+        <% else %>
+          <%= label_tag role.name, "#{role.name} (Coming in Studyhunter 2.0!)", :class => "disabled_label" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 

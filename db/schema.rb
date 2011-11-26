@@ -10,9 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126060215) do
+ActiveRecord::Schema.define(:version => 20111126183108) do
 
-  create_table "categorizations", :force => true do |t|
+  create_table "categorizations", :id => false, :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
     t.datetime "created_at"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20111126060215) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "functional"
   end
 
   create_table "students", :force => true do |t|
