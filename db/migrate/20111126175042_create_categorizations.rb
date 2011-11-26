@@ -1,6 +1,6 @@
 class CreateCategorizations < ActiveRecord::Migration
   def self.up
-    create_table :categorizations do |t|
+    create_table :categorizations, :id => false do |t|
       t.integer :user_id
       t.integer :role_id
 

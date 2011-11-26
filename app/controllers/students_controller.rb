@@ -1,4 +1,8 @@
 class StudentsController < ApplicationController
+
+  # The following restricts only those whose are logged in from viewing pages that aren't index and show.
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   def index
     @students = Student.all
   end
@@ -12,6 +16,7 @@ class StudentsController < ApplicationController
   end
 
   def create
+    params[:student][:user_id] = current_user.id
     @student = Student.new(params[:student])
     if @student.save
       redirect_to @student, :notice => "Successfully created student."

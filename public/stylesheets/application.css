@@ -126,3 +126,11 @@ div.field, div.actions {
   /* float: right; */
   font-size: 12px;
 }
+
+/*
+ * And these are my custom classes. It would probably be better for me to move these to a separate stylesheet
+ */
+
+.disabled_label {
+  color: gray;
+}
