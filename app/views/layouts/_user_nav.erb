@@ -1,9 +1,10 @@
 <nav align="right" class="round">
-        <% if user_signed_in? %>
+	<% if user_signed_in? %>
         <ul>
-    Signed in as <li><%= current_user.email %>. If this isn't you,
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete  %>
-    </ul>
+        	Signed in as <%= current_user.email %>. If this isn't you,
+        	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  , :class => "signup_button round" %>
+        	</li>
+        </ul>
   <% else %>
   <ul>
   <li><%= link_to "Sign up", new_user_registration_path, :class => "signup_button round" %></li>
