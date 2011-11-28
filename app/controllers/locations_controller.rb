@@ -6,8 +6,8 @@ class LocationsController < ApplicationController
     @locations = Location.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @locations }
+    	    format.html # index.html.erb
+    	    format.xml  { render :xml => @locations}
     end
   end
 

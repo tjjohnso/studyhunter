@@ -17,11 +17,30 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       </header>
-        <%= image_tag("logo.png", :width=>200, :alt => "Sample App", :class => "round") %>
-              <%= content_tag :h1, yield(:title) if show_title? %>
+      <div style="text-align:center">
+        <%= image_tag("titles/studyhunter.png", :width=>600) %>
+        </div>
+        <%case yield(:title)%>
+        <%when "Sign In", "Sign Up"%>
+        <table>
+        <tr>
+        <th>
+         <%= image_tag("logo.png", :height=>350) %>
+       </th>
+       <th>
+       <h1><%= image_tag("titles/"+yield(:title).split.join+".png", :height=>35) %>
+        </h1>
       <%= yield %>
+      </th>
+      </tr>
+      </table>
+      <%else%>
+      <h1><%= image_tag("titles/"+yield(:title).split.join+".png", :height=>35) %>
+        </h1>
+      <%= yield %>
+      <%end%>
+      
       <%= yield :scripts %>
-
       
     </div>
   </body>
