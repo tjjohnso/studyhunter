@@ -36,7 +36,7 @@
       </tr>
       </table>
       <%else%>
-      <h1><%= image_tag("https://www.google.com/images/nav_logo95.png", :height=>35) %>
+      <h1><%= image_tag("titles/"+yield(:title).split.join+".png", :height=>35) %>
         </h1>
       <%= yield %>
       <%end%>
