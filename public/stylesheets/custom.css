@@ -1,3 +1,8 @@
+@font-face {
+	font-family: cool_font;
+	src: url('CGF_Locust_Resistance.ttf');
+}
+
 .container {
 	width:814px; /* Changed to 814px from 710px because the Google Map map_container is 814px.  -Trenton */
 	color: #bda;
@@ -26,15 +31,27 @@ section {
 }
 
 h1 {
-	font-size: 200%;
-	color: #bda;
+	font-family: cool_font;
+	text-shadow: #7a9 0.1em 0.1em 0.2em,-1px 0 #7a9, 0 1px #7a9,
+      1px 0 #7a9, 0 -1px #7a9;
+	font-size: 45px;
+	color: #038;
 }
 
-/* I added this rule so other headings are the same color as h1. */
+/* I added this rule so other headings are the same color as h1. 
 h2, h3, h4 {
   color: #bda;
 }
+*/
 
+h2
+{
+	font-family: cool_font;
+	text-shadow: #7a9 0.1em 0.1em 0.2em,-1px 0 #7a9, 0 1px #7a9,
+      1px 0 #7a9, 0 -1px #7a9;
+	font-size: 30px;
+	color: #038;
+}
 
 /* Links */
 

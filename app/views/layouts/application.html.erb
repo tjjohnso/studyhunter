@@ -15,9 +15,9 @@
         <%= render 'layouts/user_nav' %>
       </header>
       <table height="10px"></table>
-      <div style="text-align:center; clear:both">
-        <%= link_to image_tag("titles/studyhunter.png", :width=>600), root_path %>
-      </div>
+      <div style="text-align:center">
+        <h1>StudyHunter</h1>
+        </div>
       <table height="40px"></table>
       <% case yield(:title) %>
       <% when "Sign In", "Sign Up" %>
@@ -32,9 +32,7 @@
               <% end %>
             </th>
             <th>
-              <h1>
-                <%= image_tag("titles/"+yield(:title).split.join+".png", :height=>35) %>
-              </h1>
+              <h2><%=yield(:title)%></h2>
               <%= yield %>
             </th>
           </tr>
@@ -43,9 +41,7 @@
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
         <% end %>
-        <h1>
-          <%= image_tag("titles/"+yield(:title).split.join+".png", :height=>35) %>
-        </h1>
+        <h2><%=yield(:title)%></h2>
         <%= yield %>
       <% end %>
       
