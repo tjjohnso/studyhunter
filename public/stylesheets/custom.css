@@ -1,11 +1,16 @@
+@font-face {
+	font-family: cool_font;
+	src: url('CGF_Locust_Resistance.ttf');
+}
+
 .container {
 	width: 710px;
 	color: #bda;
 }
 
 
-body {
-	background: #000;
+body {	
+	background-color:#000;
 }
 
 header {
@@ -25,15 +30,28 @@ section {
 }
 
 h1 {
-	font-size: 200%;
-	color: #bda;
+	font-family: cool_font;
+	text-shadow: #7a9 0.1em 0.1em 0.2em,-1px 0 #7a9, 0 1px #7a9,
+      1px 0 #7a9, 0 -1px #7a9;
+	font-size: 45px;
+	color: #038;
 }
 
 
 /* Links */
 
+h2
+{
+	font-family: cool_font;
+	text-shadow: #7a9 0.1em 0.1em 0.2em,-1px 0 #7a9, 0 1px #7a9,
+      1px 0 #7a9, 0 -1px #7a9;
+	font-size: 30px;
+	color: #038;
+}
+
 a {
-	color: #08a;
+	font-size: 15px;
+	color: #038;
 	text-decoration: none;
 }
 
@@ -50,6 +68,17 @@ a:visited {
 .
 .
 /* Navigation */
+
+.button {
+    background: url("public/images/logo.png") no-repeat scroll 0 0 #000000;
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 49px;
+    outline: 0 none;
+    position: relative;
+    width: 272px;
+}
 
 nav {
 	float: right;
@@ -84,6 +113,9 @@ nav ul li a:visited {
 nav ul li a:hover {
 	color: #aaa;
 	text-decoration: underline;
+	background-image: url('../images/logo2.png');
+      background-repeat: NO-REPEAT;
+      background-position: center;
 }
 
 
