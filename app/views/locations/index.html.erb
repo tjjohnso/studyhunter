@@ -2,7 +2,7 @@
 
 <!--<h1>Listing locations</h1>-->
 
-<table>
+<table style="background:#000">
   <tr>
     <th>Name</th>
     <th>Street</th>
@@ -21,7 +21,7 @@
   </tr>
 
 <% @locations.each do |location| %>
-  <tr>
+  <tr style="color:black">
     <td><%= location.name %></td>
     <td><%= location.street %></td>
     <td><%= location.city %></td>
