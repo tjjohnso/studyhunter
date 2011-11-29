@@ -1,0 +1,20 @@
+<% title "Assignment" %>
+
+<p>
+  <strong>Project Class:</strong>
+  <%= @assignment.project_class_id %>
+</p>
+<p>
+  <strong>University:</strong>
+  <%= @assignment.university_id %>
+</p>
+<p>
+  <strong>Course:</strong>
+  <%= @assignment.course_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_assignment_path(@assignment) %> |
+  <%= link_to "Destroy", @assignment, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", assignments_path %>
+</p>

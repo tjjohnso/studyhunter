@@ -1,11 +1,11 @@
 class CreateProjectClasses < ActiveRecord::Migration
   def self.up
     create_table :project_classes do |t|
-      t.string :name
-      t.integer :course_id
-      t.integer :creator_id
+      t.string   :name
+      t.integer  :creator_id
       t.datetime :date_created
-      t.datetime :deadline
+      t.datetime :end_date
+      t.text     :description
 
       t.timestamps
     end

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126183108) do
+ActiveRecord::Schema.define(:version => 20111129004346) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "project_class_id"
+    t.integer  "university_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categorizations", :id => false, :force => true do |t|
     t.integer  "user_id"
@@ -51,16 +59,18 @@ ActiveRecord::Schema.define(:version => 20111126183108) do
 
   create_table "project_classes", :force => true do |t|
     t.string   "name"
-    t.integer  "course_id"
     t.integer  "creator_id"
     t.datetime "date_created"
-    t.datetime "deadline"
+    t.datetime "end_date"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "project_instances", :force => true do |t|
     t.string   "name"
+    t.text     "description"
+    t.datetime "end_date"
     t.datetime "date_instantiated"
     t.datetime "date_last_modified"
     t.integer  "project_class_id"
