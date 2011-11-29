@@ -25,6 +25,10 @@
   <%= @project_instance.owner_id %>
 </p>
 
+<p>
+  <b>Description:</b>
+  <%= @project_instance.description %>
+</p>
 
 <%= link_to 'Edit', edit_project_instance_path(@project_instance) %> |
 <%= link_to 'Back', project_instances_path %>

@@ -1,15 +1,14 @@
-<nav style="text-align:right" class="round">
-	<% if user_signed_in? %>
-        <ul>
-        	Signed in as <%= current_user.email %>. If this isn't you,
-        	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  , :class => "signup_button round" %>
-        	</li>
-        </ul>
+<nav style="float: right;" class="round">
+  <% if user_signed_in? %>
+    <ul>
+      Signed in as <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_registration_path, :class => "user_nav_button round" %></li>.
+      If this isn't you <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "user_nav_button round" %></li>
+    </ul>
   <% else %>
-  <ul>
-  <li><%= link_to "Sign up", new_user_registration_path, :class => "signup_button round" %></li>
-  or 
-  <li><%= link_to "Sign In", new_user_session_path, :class => "signup_button round"  %></li></p>
+  <ul>                       <%# I changed the CSS class from signup_button to user_nav_button %>
+    <li><%= link_to "Sign up", new_user_registration_path, :class => "user_nav_button round" %></li>
+    or
+    <li><%= link_to "Sign In", new_user_session_path, :class => "user_nav_button round"  %></li>
    </ul>
   <% end %>
 </nav>

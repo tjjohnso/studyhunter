@@ -1,4 +1,6 @@
 Studyhunter::Application.routes.draw do
+  resources :assignments
+
   resources :students
 
   # I temporarily set the root page to be list of locations. We can change it later.

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :categorizations
+  has_many :categorizations, :dependent => :destroy
   has_many :roles, :through => :categorizations
   has_one :student
 

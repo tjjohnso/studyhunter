@@ -2,44 +2,52 @@
 <html>
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "StudyHunter" %></title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon"> 
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
     <%= csrf_meta_tag %>  
     <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
- <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
   </head>
   <body>
     <div class="container">
       <header>
-            <%= render 'layouts/user_nav' %>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
+        <%= render 'layouts/user_nav' %>
       </header>
-      <div style="text-align:center">
-        <h1>StudyHunter</h1>
-        </div>
-        <table height="40px"></table>
-        <%case yield(:title)%>
-        <%when "Sign In", "Sign Up"%>
+      <table height="10px"></table>
+      <div style="text-align:center; clear:both">
+        <%= link_to image_tag("titles/studyhunter.png", :width=>600), root_path %>
+      </div>
+      <table height="40px"></table>
+      <% case yield(:title) %>
+      <% when "Sign In", "Sign Up" %>
         <table>
-        <tr>
-        <th>
-         <%= image_tag("logo.png", :height=>350) %>
-       </th>
-       <th>
-       <h2><%=yield(:title)%></h2>
-      <%= yield %>
-      </th>
-      </tr>
-      </table>
-      <%else%>
-       <h2><%=yield(:title)%></h2>
-      <%= yield %>
-      <%end%>
+          <tr>
+            <th>
+              <%= image_tag("logo.png", :height=>350) %>
+            </th>
+            <th>
+              <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, :id => "flash_#{name}" %>
+              <% end %>
+            </th>
+            <th>
+              <h1>
+                <%= image_tag("titles/"+yield(:title).split.join+".png", :height=>35) %>
+              </h1>
+              <%= yield %>
+            </th>
+          </tr>
+        </table>
+      <% else %>
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+        <h1>
+          <%= image_tag("titles/"+yield(:title).split.join+".png", :height=>35) %>
+        </h1>
+        <%= yield %>
+      <% end %>
       
       <%= yield :scripts %>
       

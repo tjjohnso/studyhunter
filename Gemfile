@@ -11,6 +11,7 @@ gem 'jquery-rails', '~> 1.0.13'
 gem 'gmaps4rails'
 gem 'nifty-generators'
 gem 'devise'
+gem 'class-table-inheritance'
 
 group :development do
   gem 'rspec-rails', '2.6.1'
@@ -20,6 +21,9 @@ group :test do
   gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
 end
+
+# This is a cool gem to display table data in a table output in the console.
+gem 'hirb'
 
 # Mocha was added when I ran the nifty scaffold, but I don't know if I really need it.
 # I'll install it for now.
