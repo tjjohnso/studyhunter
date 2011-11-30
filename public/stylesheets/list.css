@@ -12,6 +12,12 @@
 }
 
 
+
+
+.list table tr td:nth-child(even) {
+    background-color: #037;
+}
+
 .list table tr th{
 	border:1px solid black;
 	text-align:center;
