@@ -13,19 +13,22 @@
 <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'></head>
   <body>
+      
     <div class="container">
-      <header>
+      <header >
         <%= render 'layouts/user_nav' %>
-      <table height="10px"></table>
+        <table height="10px"></table>
       <div style="text-align:center">  
       <a href="/"><h1>StudyHunter</h1></a>
       <% case yield(:title) %>
       <% when "Sign In", "Sign Up" %>
       <%else%>
-      <img  style="position:absolute; left:285px;top:0px;z-index:-1" src="../images/logo.png" width="160px"/>
+      <img  style="position:absolute; left:280px;top:10px;z-index:-1" src="../images/logo.png" width="160px"/>
         <%end%>
       </div>
       </header>
+      
+      
       <% case yield(:title) %>
       <% when "Sign In", "Sign Up" %>
       <%else%>
@@ -48,6 +51,7 @@
           </tr>
         </table>
       <% else %>
+      <div class="list">
         <h2><%=yield(:title)%></h2>
         <%= yield %>
       <% end %>
@@ -60,6 +64,7 @@
     <br/>
     Designed by Trenton Johnson and Ramy Elshenawy
     </a>
+    </div>
     </div>
   </body>
   

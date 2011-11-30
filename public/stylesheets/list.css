@@ -1,8 +1,8 @@
-#list{
+.list table{
 	background:#026;
 }
 
-#list tr{
+.list table tr{
 	background-image:url('../images/darkgray3.png');
 	font-family: Bangers;
 	text-shadow: #000 0.1em 0.1em 0.2em,-1px 0 #000, 0 1px #000,
@@ -12,19 +12,19 @@
 }
 
 
-#list tr th{
+.list table tr th{
 	border:1px solid black;
 	text-align:center;
 }
 
-#list tr td{
+.list table tr td{
 	background:#026;
 	color:#bda;
 	font-family: Yanone Kaffeesatz;
 	font-size: 18px;
 }
 
-#list tr td a{
+.list table tr td a{
 	color:#bda;
 	font-family:Bangers;
 }
