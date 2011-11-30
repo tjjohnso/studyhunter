@@ -4,6 +4,8 @@
       <w>authenticatable</w>
       <w>confirmable</w>
       <w>encryptable</w>
+      <w>gmappable</w>
+      <w>gmaps</w>
       <w>omniauthable</w>
       <w>registerable</w>
       <w>rememberable</w>

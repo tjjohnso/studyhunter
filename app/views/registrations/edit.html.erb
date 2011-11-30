@@ -29,7 +29,7 @@
         <% if role.functional %>
           <%= label_tag role.name %>
         <% else %>
-          <%= label_tag role.name, "#{role.name} (Coming in Studyhunter 2.0!)", :class => "disabled_label" %>
+          <%= label_tag role.name, "#{role.name} (Coming in StudyHunter 2.0!)", :class => "disabled_label" %>
         <% end %>
       </div>
     <% end %>
@@ -46,8 +46,10 @@
 
   <div><%= f.submit "Update" %></div>
 <% end %>
-
-<h3>Cancel my account</h3>
+<br/>
+<p>
+  <h3>Cancel my account</h3>
+</p>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 

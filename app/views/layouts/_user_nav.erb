@@ -1,7 +1,7 @@
 <nav style="float: right;" class="round">
   <% if user_signed_in? %>
     <ul>
-      Signed in as <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_registration_path, :class => "user_nav_button round" %></li>.
+      Signed in as <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", {:controller => "registrations", :action => "show"}, {:class => "user_nav_button round"} %></li>.
       If this isn't you <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "user_nav_button round" %></li>
     </ul>
   <% else %>

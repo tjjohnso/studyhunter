@@ -17,6 +17,9 @@
     <td><%= "#{creator.first_name} #{creator.last_name}" %></td>
     <td><%= project_class.readable_end_date %></td>
     <td><%= project_class.description %></td>
+    <% if user_signed_in? %>
+      <td><%= link_to "Instantiate!", new_project_instance_path(:project_class_id => project_class.id) %></td>
+    <% end %>
     <% if ( !project_class.creator.nil? ) %>
       <% if current_user == project_class.creator %>
         <td><%= link_to 'Edit', edit_project_class_path(project_class) %></td>

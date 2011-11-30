@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
 
   has_many :categorizations, :dependent => :destroy
   has_many :roles, :through => :categorizations
-  has_one :student
+  has_one :student, :dependent => :destroy
 
-  has_many :comments, :foreign_key => "author_id"
+  has_many :comments, :foreign_key => "author_id", :dependent => :destroy
 
   has_many :project_classes, :foreign_key => "creator_id"
   has_many :project_memberships, :dependent => :destroy

@@ -6,7 +6,7 @@ class ProjectInstance < ActiveRecord::Base
   has_many :locations, :through => :study_sessions
 
   belongs_to :project_class
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
 
