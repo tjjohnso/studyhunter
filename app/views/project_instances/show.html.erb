@@ -37,6 +37,14 @@
   <%= @project_instance.readable_end_date if !@project_instance.end_date.nil? %>
 </p>
 
+
+<% if ( !@project_instance.owner.nil? ) %>
+  <% if current_user == @project_instance.owner %>
+    <%= link_to 'Edit', edit_project_instance_path(@project_instance) %> |
+  <% end %>
+<% end %>
+<%= link_to 'Back', project_instances_path %>
+
 <p>
   <h3 id="comments_count"><%= pluralize(@project_instance.comments.size, "Comment") %></h3>
 </p>
@@ -54,10 +62,3 @@
   </p>
   <p><%= f.submit "Add Comment" %></p>
 <% end %>
-
-<% if ( !@project_instance.owner.nil? ) %>
-  <% if current_user == @project_instance.owner %>
-    <%= link_to 'Edit', edit_project_instance_path(@project_instance) %> |
-  <% end %>
-<% end %>
-<%= link_to 'Back', project_instances_path %>

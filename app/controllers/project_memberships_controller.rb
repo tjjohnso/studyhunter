@@ -26,12 +26,32 @@ class ProjectMembershipsController < ApplicationController
   # GET /project_memberships/new
   # GET /project_memberships/new.xml
   def new
-    @project_membership = ProjectMembership.new
+    if !params[:project_class_id].nil?
+      @project_instance = ProjectInstance.new
 
+      # Build and initialize project_class association.
+      @project_instance.build_project_class
+      project_class = ProjectClass.find params[:project_class_id]
+      @project_instance.project_class = project_class
+
+      # Get default attributes from the project_class.
+      inherited_attributes = { :name => project_class.name, :description => project_class.description  }
+      inherited_attributes[:end_date] = project_class.end_date unless project_class.end_date.nil?
+      @project_instance.attributes = inherited_attributes
+    else
+      initialized_end_date = week_from_now
+      @project_instance = ProjectInstance.new(:end_date => initialized_end_date)
+    end
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @project_membership }
+      format.xml  { render :xml => @project_instance }
     end
+    #@project_membership = ProjectMembership.new
+    #
+    #respond_to do |format|
+    #  format.html # new.html.erb
+    #  format.xml  { render :xml => @project_membership }
+    #end
   end
 
   # GET /project_memberships/1/edit

@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @comment = Comment.create!(params[:comment])
-    #flash[:notice] = "Thank you for commenting!"
+    flash[:notice] = "Thank you for commenting!"
     respond_to do |format|
       format.html { redirect_to @comment.project_instance }
       format.js

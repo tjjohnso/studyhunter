@@ -7,6 +7,7 @@
     <th>University</th>
     <th>Major</th>
     <th>Rating</th>
+    <!--<th></th>-->
   </tr>
   <% for student in @students %>
     <tr>
@@ -15,13 +16,13 @@
       <td><%= student.university.nil? ? "" : student.university.name %></td>
       <td><%= student.major %></td>
       <td><%= student.rating %></td>
-      <td>
-        <% if ( !student.user.nil? ) %>
-          <% if current_user == student.user %>
-            <%= link_to "Edit", edit_student_path(student) %>
-          <% end %>
-        <% end %>
-      </td>
+      <!--<td>-->
+        <!--<% if ( !student.user.nil? ) %>-->
+          <!--<% if current_user == student.user %>-->
+            <!--<%= link_to "Edit", edit_student_path(student) %>-->
+          <!--<% end %>-->
+        <!--<% end %>-->
+      <!--</td>-->
     </tr>
   <% end %>
 </table>
