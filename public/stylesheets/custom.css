@@ -4,15 +4,16 @@
 }
 
 .container {
-	width:814px; /* Changed to 814px from 710px because the Google Map map_container is 814px.  -Trenton */
+	width:1024px; /* Changed to 814px from 710px because the Google Map map_container is 814px.  -Trenton */
 	color: #bda;
 }
 
 #user_submit
 {
+	font-size:20px;
 	background-image:url('../images/smalldarkblue1.png');
 	border:0px;
-	font-family: cool_font;
+	font-family: Bangers;
 	color: #bda;
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
@@ -50,32 +51,33 @@ section {
 }
 
 h1 {
-	font-family: cool_font;
+	font-family: Bangers;
 	text-shadow: #7a9 0.1em 0.1em 0.2em,-1px 0 #7a9, 0 1px #7a9,
       1px 0 #7a9, 0 -1px #7a9;
-	font-size: 45px;
+	font-size: 60px;
 	color: #038;
 }
-
-/* I added this rule so other headings are the same color as h1. 
-h2, h3, h4 {
-  color: #bda;
-}
-*/
 
 h2
 {
-	font-family: cool_font;
+	font-family: Bangers;
 	text-shadow: #7a9 0.1em 0.1em 0.2em,-1px 0 #7a9, 0 1px #7a9,
       1px 0 #7a9, 0 -1px #7a9;
-	font-size: 30px;
+	font-size: 40px;
 	color: #038;
+}
+
+
+h3{
+	font-family: Bangers;
+	font-size: 30px;
+	color: #bda;
 }
 
 /*Links*/ 
 b
 {
-	font-family: cool_font;
+	font-family: Bangers;
 }
 a {
 	text-decoration: none;
@@ -103,10 +105,10 @@ a:visited {
 	border:4px solid black;
 	background-image:url('../images/darkgray1.png');
 	text-align:center;
-	font-family: cool_font;
+	font-family: Bangers;
 	text-shadow: #7a9 0.1em 0.1em 0.2em,-1px 0 #7a9, 0 1px #7a9,
 		1px 0 #7a9, 0 -1px #7a9;
-	font-size: 20px;
+	font-size: 25px;
 	color: #038;
 }
 
@@ -157,7 +159,6 @@ nav ul li {
 nav ul li a {
 	color: #0a8;
 	padding: 0 5px;
-	font-weight: bold;
 }
 
 nav ul li a:visited {
@@ -179,8 +180,8 @@ a.user_nav_button {
 /*  width: 190px;*/
   color: #fff;
   background-image: url('../images/smalldarkblue1.png');
-  font-size: 100%;
-  font-family: cool_font;
+  font-size: 150%;
+  font-family: Bangers;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -203,6 +204,7 @@ a.user_nav_button:active
 }
 
 #map_container {
+	width:100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -225,10 +227,12 @@ a.user_nav_button:active
 #flash_error, #flash_alert {
   background-color: #FCC;
   border: solid 1px #C66;
+  color: #a00;
 }
 
 .fieldWithErrors {
   display: inline;
+  color: #a00;
 }
 
 .error_messages {
@@ -239,6 +243,8 @@ a.user_nav_button:active
   margin-bottom: 20px;
   background-color: #f0f0f0;
   font-size: 12px;
+  
+  color: #a00;
 }
 
 .error_messages h2 {
@@ -253,6 +259,7 @@ a.user_nav_button:active
 
 .error_messages p {
   margin: 8px 10px;
+  color: #a00;
 }
 
 .error_messages ul {
@@ -275,6 +282,7 @@ div.field, div.actions {
   padding: 2px;
   background-color: #FCC; /* red; */
   display: table;
+  color: #a00;
 }
 
 #error_explanation {
@@ -284,17 +292,18 @@ div.field, div.actions {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  color: #600;
 }
 
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
-  font-size: 12px;
+  font-size: 20px;
   margin: -7px;
   margin-bottom: 0px;
   background-color: #c00;
-  color: #fff;
+  color: #400;
 }
 
 #error_explanation ul li {

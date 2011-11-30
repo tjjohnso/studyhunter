@@ -1,0 +1,26 @@
+#list{
+	background:#026;
+}
+
+#list tr{
+	background-image:url('../images/darkgray1.png');
+	font-family: Bangers;
+	font-size: 25px;
+	color: #bda;
+}
+
+
+#list tr th{
+	border:1px solid black;
+	text-align:center;
+}
+
+#list tr td{
+	background:#026;
+	color:#bda;
+}
+
+#list tr td a{
+	color:#bda;
+}
+
