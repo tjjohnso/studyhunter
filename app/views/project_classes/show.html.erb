@@ -15,12 +15,12 @@
 
 <p>
   <b>Date created:</b>
-  <%= @project_class.created_at %>
+  <%= @project_class.readable_created_at %>
 </p>
 
 <p>
   <b>Deadline or Target Date:</b>
-  <%= @project_class.end_date %>
+  <%= @project_class.readable_end_date %>
 </p>
 
 <p>
@@ -28,5 +28,9 @@
   <%= @project_class.description %>
 </p>
 
-<%= link_to 'Edit', edit_project_class_path(@project_class) %> |
+<% if ( !@project_class.creator.nil? ) %>
+  <% if current_user == @project_class.creator %>
+    <%= link_to 'Edit', edit_project_class_path(@project_class) %> |
+  <% end %>
+<% end %>
 <%= link_to 'Back', project_classes_path %>

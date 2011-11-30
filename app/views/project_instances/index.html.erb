@@ -5,12 +5,12 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Date instantiated</th>
-    <th>Date last modified</th>
-    <th>Project class</th>
     <th>Owner</th>
+    <th>Instantiated</th>
+    <th>Last modified</th>
+    <th>Project class</th>
     <th>Description</th>
-    <th></th>
+    <th>Deadline or Target Date</th>
     <th></th>
     <th></th>
   </tr>
@@ -18,13 +18,21 @@
 <% @project_instances.each do |project_instance| %>
   <tr>
     <td><%= link_to project_instance.name, project_instance %></td>
-    <td><%= project_instance.date_instantiated %></td>
-    <td><%= project_instance.date_last_modified %></td>
+    <td><%= "#{project_instance.owner.first_name} #{project_instance.owner.last_name}" unless project_instance.owner.nil? %></td>
+    <td><%= project_instance.readable_created_at %></td>
+    <td><%= project_instance.readable_updated_at %></td>
     <td><%= project_instance.project_class_id %></td>
-    <td><%= project_instance.owner_id %></td>
     <td><%= project_instance.description %></td>
-    <td><%= link_to 'Edit', edit_project_instance_path(project_instance) %></td>
-    <td><%= link_to 'Remove', project_instance, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= project_instance.readable_end_date if !project_instance.end_date.nil? %></td>
+    <% if ( !project_instance.owner.nil? ) %>
+      <% if current_user == project_instance.owner %>
+        <td><%= link_to 'Edit', edit_project_instance_path(project_instance) %></td>
+        <td><%= link_to 'Remove', project_instance, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% else %>
+        <td><td>
+        <td><td>
+      <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>

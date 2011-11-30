@@ -34,4 +34,15 @@ class User < ActiveRecord::Base
       r.name.downcase
     end
   end
+
+  def has_association?(resource)
+    associations = User.reflect_on_all_associations.map {|assc| assc.name.to_s }
+    if associations.include?(resource)
+      puts "#{resource} is associated with User"
+      return true
+    else
+      puts "#{resource} is not associated with User"
+      return false
+    end
+  end
 end

@@ -8,15 +8,14 @@
     <th>University</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @courses.each do |course| %>
   <tr>
     <td><%= link_to course.name, course %></td>
     <td><%= course.university_id %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Remove', course, :confirm => 'Are you sure?', :method => :delete %></td>
+    <!--<td><%#= link_to 'Edit', edit_course_path(course) %></td>-->
+    <!--<td><%#= link_to 'Remove', course, :confirm => 'Are you sure?', :method => :delete %></td>-->
   </tr>
 <% end %>
 </table>

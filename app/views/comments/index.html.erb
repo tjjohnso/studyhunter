@@ -20,8 +20,15 @@
     <td><%= comment.author_id %></td>
     <td><%= comment.date_created %></td>
     <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Remove', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if ( !comment.author.nil? ) %>
+      <% if current_user == comment.author %>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Remove', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+      <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>

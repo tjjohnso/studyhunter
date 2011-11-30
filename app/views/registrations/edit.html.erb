@@ -19,8 +19,13 @@
   <div class="field">
     <%= f.label :roles, "Edit your roles:" %>
     <% for role in Role.all %>
+      <% if current_user.has_association?(role.name.downcase) %>
+          <% checked = !current_user.send(role.name.downcase).nil? && current_user.role_names.include?(role.name.downcase) %>
+        <% else %>
+          <% checked = false %>
+      <% end %>
       <div>
-        <%= check_box_tag "user[role_ids][]", role.id, !current_user.student.nil?, :disabled => !role.functional  %>
+        <%= check_box_tag "user[role_ids][]", role.id, checked, :disabled => !role.functional  %>
         <% if role.functional %>
           <%= label_tag role.name %>
         <% else %>

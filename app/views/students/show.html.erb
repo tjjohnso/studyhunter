@@ -1,5 +1,8 @@
 <% title "Student" %>
-
+<p>
+  <strong>Name:</strong>
+  <%= "#{@student.user.first_name} #{@student.user.last_name}" %>
+</p>
 <p>
   <strong>University:</strong>
   <%= @student.university.nil? ? "" : @student.university.name %>
@@ -14,7 +17,10 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_student_path(@student) %> |
-  <%= link_to "Remove", @student, :confirm => 'Are you sure?', :method => :delete %> |
+  <% if ( !@student.user.nil? ) %>
+    <% if current_user == @student.user %>
+      <%= link_to "Edit", edit_student_path(@student) %> |
+    <% end %>
+  <% end %>
   <%= link_to "View All", students_path %>
 </p>

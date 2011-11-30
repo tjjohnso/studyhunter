@@ -18,5 +18,9 @@
 </p>
 
 
-<%= link_to 'Edit', edit_study_session_path(@study_session) %> |
+<% if ( !@study_session.project_instance.nil? and !@study_session.project_instance.users.nil? ) %>
+  <% if @study_session.project_instance.users.includes?(current_user) %>
+    <%= link_to 'Edit', edit_study_session_path(@study_session) %> |
+  <% end %>
+<% end %>
 <%= link_to 'Back', study_sessions_path %>

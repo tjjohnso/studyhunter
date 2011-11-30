@@ -12,8 +12,15 @@
       <td><%= assignment.university_id %></td>
       <td><%= assignment.course_id %></td>
       <td><%= link_to "Show", assignment %></td>
-      <td><%= link_to "Edit", edit_assignment_path(assignment) %></td>
-      <td><%= link_to "Destroy", assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if ( !assignment.project_class.nil? and !assignment.project_class.creator.nil? ) %>
+        <% if current_user == assignment.project_class.creator %>
+          <td><%= link_to "Edit", edit_assignment_path(assignment) %></td>
+          <td><%= link_to "Destroy", assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
+      <% end %>
     </tr>
   <% end %>
 </table>

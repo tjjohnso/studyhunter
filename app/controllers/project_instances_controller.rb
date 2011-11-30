@@ -26,7 +26,11 @@ class ProjectInstancesController < ApplicationController
   # GET /project_instances/new
   # GET /project_instances/new.xml
   def new
-    @project_instance = ProjectInstance.new
+    current_time = Time.now
+    beginning_of_hour = current_time.change(:hour => current_time.hour)
+    beginning_of_next_hour = beginning_of_hour - 4.hours # Include offset for EST -0500
+    initialized_end_date = beginning_of_next_hour + 1.week
+    @project_instance = ProjectInstance.new(:end_date => initialized_end_date)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +46,7 @@ class ProjectInstancesController < ApplicationController
   # POST /project_instances
   # POST /project_instances.xml
   def create
+    params[:project_instance][:owner_id] = current_user.id
     @project_instance = ProjectInstance.new(params[:project_instance])
 
     respond_to do |format|

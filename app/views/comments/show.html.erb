@@ -23,5 +23,9 @@
 </p>
 
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<% if ( !@comment.author.nil? ) %>
+  <% if current_user == @comment.author %>
+    <%= link_to 'Edit', edit_comment_path(@comment) %> |
+  <% end %>
+<% end %>
 <%= link_to 'Back', comments_path %>

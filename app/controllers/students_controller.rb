@@ -1,6 +1,4 @@
 class StudentsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
-
   # The following restricts only those whose are logged in from viewing pages that aren't index and show.
   before_filter :authenticate_user!, :except => [:index, :show]
 

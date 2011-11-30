@@ -10,14 +10,18 @@
   </tr>
   <% for student in @students %>
     <tr>
-      <td><%= student.user.nil? ? "" : student.user.first_name %></td>
-      <td><%= student.user.nil? ? "" : student.user.last_name %></td>
+      <td><%= student.user.nil? ? "" : link_to( student.user.first_name, student ) %></td>
+      <td><%= student.user.nil? ? "" : link_to( student.user.last_name, student ) %></td>
       <td><%= student.university.nil? ? "" : student.university.name %></td>
       <td><%= student.major %></td>
       <td><%= student.rating %></td>
-      <td><%= link_to "Show", student %></td>
-      <td><%= link_to "Edit", edit_student_path(student) %></td>
-      <td><%= link_to "Remove", student, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if ( !student.user.nil? ) %>
+        <% if current_user == student.user %>
+          <td><%= link_to "Edit", edit_student_path(student) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+      <% end %>
     </tr>
   <% end %>
 </table>

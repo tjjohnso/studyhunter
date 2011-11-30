@@ -11,4 +11,16 @@ class ProjectInstance < ActiveRecord::Base
   belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
 
   validates :project_class_id, :owner_id, :presence => true
+
+  def readable_end_date
+    end_date.strftime("%b %e - %I:%M %p")
+  end
+
+  def readable_created_at
+    created_at.strftime("%b %e - %I:%M %p")
+    end
+
+  def readable_updated_at
+    updated_at.strftime("%b %e - %I:%M %p")
+  end
 end

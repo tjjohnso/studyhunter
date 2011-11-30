@@ -14,7 +14,11 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_assignment_path(@assignment) %> |
-  <%= link_to "Destroy", @assignment, :confirm => 'Are you sure?', :method => :delete %> |
+  <% if ( !assignment.project_class.nil? and !assignment.project_class.creator.nil? ) %>
+    <% if current_user == assignment.project_class.creator %>
+      <%= link_to "Edit", edit_assignment_path(@assignment) %> |
+      <%= link_to "Destroy", @assignment, :confirm => 'Are you sure?', :method => :delete %> |
+    <% end %>
+  <% end %>
   <%= link_to "View All", assignments_path %>
 </p>

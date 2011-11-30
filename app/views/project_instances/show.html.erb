@@ -1,6 +1,6 @@
 <% title "Project Instance" %>
 
-<!--<p id="notice"><%= notice %></p>-->
+<!--<p id="notice"><%#= notice %></p>-->
 
 <p>
   <b>Name:</b>
@@ -8,13 +8,18 @@
 </p>
 
 <p>
-  <b>Date instantiated:</b>
-  <%= @project_instance.date_instantiated %>
+  <b>Owner:</b>
+  <%= "#{@project_instance.owner.first_name} #{@project_instance.owner.last_name}" unless @project_instance.owner.nil? %>
 </p>
 
 <p>
-  <b>Date last modified:</b>
-  <%= @project_instance.date_last_modified %>
+  <b>Instantiated:</b>
+  <%= @project_instance.readable_created_at %>
+</p>
+
+<p>
+  <b>Last modified:</b>
+  <%= @project_instance.readable_updated_at %>
 </p>
 
 <p>
@@ -23,14 +28,18 @@
 </p>
 
 <p>
-  <b>Owner:</b>
-  <%= @project_instance.owner_id %>
-</p>
-
-<p>
   <b>Description:</b>
   <%= @project_instance.description %>
 </p>
 
-<%= link_to 'Edit', edit_project_instance_path(@project_instance) %> |
+<p>
+  <b>Deadline or Target Date:</b>
+  <%= @project_instance.readable_end_date if !@project_instance.end_date.nil? %>
+</p>
+
+<% if ( !@project_instance.owner.nil? ) %>
+  <% if current_user == @project_instance.owner %>
+    <%= link_to 'Edit', edit_project_instance_path(@project_instance) %> |
+  <% end %>
+<% end %>
 <%= link_to 'Back', project_instances_path %>

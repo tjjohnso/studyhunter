@@ -8,7 +8,6 @@
     <th>Description</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @project_classes.each do |project_class| %>
@@ -16,14 +15,21 @@
     <td><%= link_to project_class.name, project_class %></td>
     <% creator = User.find project_class.creator_id %>
     <td><%= "#{creator.first_name} #{creator.last_name}" %></td>
-    <td><%= project_class.end_date %></td>
+    <td><%= project_class.readable_end_date %></td>
     <td><%= project_class.description %></td>
-    <td><%= link_to 'Edit', edit_project_class_path(project_class) %></td>
-    <td><%= link_to 'Remove', project_class, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if ( !project_class.creator.nil? ) %>
+      <% if current_user == project_class.creator %>
+        <td><%= link_to 'Edit', edit_project_class_path(project_class) %></td>
+        <td><%= link_to 'Remove', project_class, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+      <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Project class', new_project_class_path %>
+<%= link_to 'New Project', new_project_class_path %>

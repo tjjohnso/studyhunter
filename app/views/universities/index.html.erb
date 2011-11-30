@@ -7,14 +7,13 @@
     <th>Name</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @universities.each do |university| %>
   <tr>
     <td><%= link_to university.name, university %></td>
-    <td><%= link_to 'Edit', edit_university_path(university) %></td>
-    <td><%= link_to 'Remove', university, :confirm => 'Are you sure?', :method => :delete %></td>
+    <!--<td><%#= link_to 'Edit', edit_university_path(university) %></td>-->
+    <!--<td><%#= link_to 'Remove', university, :confirm => 'Are you sure?', :method => :delete %></td>-->
   </tr>
 <% end %>
 </table>

@@ -18,8 +18,13 @@
     <td><%= study_session.location_id %></td>
     <td><%= study_session.meeting_date %></td>
     <td><%= link_to 'Show', study_session %></td>
-    <td><%= link_to 'Edit', edit_study_session_path(study_session) %></td>
-    <td><%= link_to 'Remove', study_session, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if ( !study_session.project_instance.nil? and !study_session.project_instance.users.nil? ) %>
+      <% if study_session.project_instance.users.includes?(current_user) %>
+        <td><%= link_to 'Edit', edit_study_session_path(study_session) %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>

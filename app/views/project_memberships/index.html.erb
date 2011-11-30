@@ -18,8 +18,15 @@
     <td><%= project_membership.student_id %></td>
     <td><%= project_membership.student_rights %></td>
     <td><%= link_to 'Show', project_membership %></td>
-    <td><%= link_to 'Edit', edit_project_membership_path(project_membership) %></td>
-    <td><%= link_to 'Remove', project_membership, :confirm => 'Are you sure?', :method => :delete %></td>
+    <%# if ( !project_membership.project.users.nil? ) %>
+      <%# if current_user == project_class.creator %>
+        <!--<td><%#= link_to 'Edit', edit_project_membership_path(project_membership) %></td>-->
+        <!--<td><%#= link_to 'Remove', project_membership, :confirm => 'Are you sure?', :method => :delete %></td>-->
+      <%# else %>
+        <td></td>
+        <td></td>
+      <%# end %>
+    <%# end %>
   </tr>
 <% end %>
 </table>
