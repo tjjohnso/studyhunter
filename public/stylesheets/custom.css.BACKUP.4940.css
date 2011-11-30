@@ -8,28 +8,9 @@
 	color: #bda;
 }
 
-#user_submit
-{
-	background-image:url('../images/smalldarkblue1.png');
-	border:0px;
-	font-family: cool_font;
-	color: #bda;
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
-}
-#user_submit:hover
-{
-background-image:url('../images/smalldarkblue2.png');
-	
-}
-#user_submit:active
-{
-background-image:url('../images/smalldarkblue1.png');
-	
-}
-body {
-	background: #000;
+
+body {	
+	background-color:#000;
 }
 
 header {
@@ -57,11 +38,13 @@ h1 {
 	color: #038;
 }
 
-/* I added this rule so other headings are the same color as h1. 
+/* I added this rule so other headings are the same color as h1. */
 h2, h3, h4 {
   color: #bda;
 }
-*/
+
+
+/* Links */
 
 h2
 {
@@ -72,66 +55,46 @@ h2
 	color: #038;
 }
 
-/*Links*/ 
-b
-{
-	font-family: cool_font;
-}
 a {
+	font-size: 15px;
+	color: #038;
 	text-decoration: none;
-	color:#038;
 }
 
 a:hover {
-	color:#05a;
+	color: #069;
+	text-decoration: underline;
 }
 
 a:visited {
+	color: #08a;
 }
 
 /* Navigation */
 
+<<<<<<< HEAD
+.button {
+    background: url("public/images/logo.png") no-repeat scroll 0 0 #000000;
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 49px;
+    outline: 0 none;
+    position: relative;
+    width: 272px;
+=======
 .main_logo {
   float:left;
 }
-#menu
-{
-	height:40px;
+
+#main_menu {
+  float:left;
 }
 
-#menu th{
-	border:4px solid black;
-	background-image:url('../images/darkgray1.png');
-	text-align:center;
-	font-family: cool_font;
-	text-shadow: #7a9 0.1em 0.1em 0.2em,-1px 0 #7a9, 0 1px #7a9,
-		1px 0 #7a9, 0 -1px #7a9;
-	font-size: 20px;
-	color: #038;
-}
-
-#menu th a{
-	color: #038;
-}
-
-#menu th:hover{
-	background-image:url('../images/darkgray2.png');
-	
-	color: #049;
-}
-#menu th:active{
-	background-image:url('../images/darkgray1.png');
-	
-	color: #038;
-}
-
-#menu th a:hover{
-	
-	color: #049;
-}
-#menu th a:active{
-	
-	color: #038;
+#main_menu_links {
+  position: absolute;
+  bottom:0;
+>>>>>>> c319ec733582fc346c20a3d5ba4c08c896687d62
 }
 
 nav {
@@ -150,22 +113,26 @@ nav ul {
 }
 
 nav ul li {
+	list-style-type: none;
 	display: inline-block;
 	padding: 0.2em 0;
 }
 
 nav ul li a {
-	color: #0a8;
 	padding: 0 5px;
 	font-weight: bold;
 }
 
 nav ul li a:visited {
-	color: #bda;
+	color: #128;
 }
 
 nav ul li a:hover {
+	color: #aaa;
 	text-decoration: underline;
+	background-image: url('../images/logo2.png');
+      background-repeat: NO-REPEAT;
+      background-position: center;
 }
 
 
@@ -178,22 +145,11 @@ a.user_nav_button {
   text-align: center;
 /*  width: 190px;*/
   color: #fff;
-  background-image: url('../images/smalldarkblue1.png');
+  background: #bda;
   font-size: 100%;
-  font-family: cool_font;
+  font-weight: bold;
   padding-left: 15px;
   padding-right: 15px;
-}
-
-a.user_nav_button:hover
-{
-  background-image: url('../images/smalldarkblue2.png');
-	
-}
-a.user_nav_button:active
-{
-  background-image: url('../images/smalldarkblue1.png');
-	
 }
 
 .round {
