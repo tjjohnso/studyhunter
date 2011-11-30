@@ -28,8 +28,8 @@
 
 <% if user_signed_in? %>
   <% if current_user.student.nil? %>
-    <p><%= link_to "Become a Student", new_student_path %></p>
+  <a id="user_submit" href="<%= new_student_path %>">Become a Student</a>
   <% else %>
-    <p><%= link_to "Edit Student Details", edit_student_path(current_user.student.id) %></p>
+      <a id="user_submit" href="<%= edit_student_path(current_user.student.id)  %>">Edit Student Details</a>
   <% end %>
 <% end %>

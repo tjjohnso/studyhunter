@@ -6,6 +6,32 @@
 .container {
 	width:1024px; /* Changed to 814px from 710px because the Google Map map_container is 814px.  -Trenton */
 	color: #bda;
+	font-size:18px;	
+	font-family: Yanone Kaffeesatz;
+}
+
+input[type="submit"]
+{
+	font-size:20px;
+	background-image:url('../images/smalldarkblue1.png');
+	border:0px;
+	font-family: Bangers;
+	color: #bda;
+	padding-left:12px;
+	padding-right:12px;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
+input[type="submit"]:hover
+{
+background-image:url('../images/smalldarkblue2.png');
+	
+}
+input[type="submit"]:active
+{
+background-image:url('../images/smalldarkblue1.png');
+	
 }
 
 #user_submit
@@ -31,6 +57,8 @@ background-image:url('../images/smalldarkblue2.png');
 background-image:url('../images/smalldarkblue1.png');
 	
 }
+
+
 body {
 	background: #000;
 }
@@ -82,13 +110,17 @@ h4{
 	color: #bda;
 }
 
-/*Links*/ 
-b
+label
 {
-	font-family: Bangers;
+	font-family: Yanone Kaffeesatz;	
+	font-size: 22px;
+	color: #bda;
 }
+
+/*Links*/ 
 a {
 	text-decoration: none;
+	font-family: Yanone Kaffeesatz;
 	color:#038;
 }
 
@@ -185,7 +217,7 @@ a.user_nav_button {
 /*  width: 190px;*/
   color: #fff;
   background-image: url('../images/smalldarkblue1.png');
-  font-size: 150%;
+  font-size: 20px;
   font-family: Bangers;
   padding-left: 15px;
   padding-right: 15px;
@@ -291,6 +323,7 @@ div.field, div.actions {
 }
 
 #error_explanation {
+	font-family: Yanone Kaffeesatz;
   width: 450px;
   border: 2px solid red;
   padding: 7px;
@@ -312,7 +345,7 @@ div.field, div.actions {
 }
 
 #error_explanation ul li {
-  font-size: 12px;
+  font-size: 18px;
   list-style: square;
 }
 
