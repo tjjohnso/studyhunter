@@ -1,4 +1,6 @@
 class ProjectClassesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /project_classes
   # GET /project_classes.xml
   def index
@@ -40,6 +42,7 @@ class ProjectClassesController < ApplicationController
   # POST /project_classes
   # POST /project_classes.xml
   def create
+    params[:project_class][:creator_id] = current_user.id
     @project_class = ProjectClass.new(params[:project_class])
 
     respond_to do |format|

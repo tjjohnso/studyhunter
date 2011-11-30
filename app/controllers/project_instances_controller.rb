@@ -1,4 +1,6 @@
 class ProjectInstancesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /project_instances
   # GET /project_instances.xml
   def index

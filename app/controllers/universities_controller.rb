@@ -1,4 +1,6 @@
 class UniversitiesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /universities
   # GET /universities.xml
   def index

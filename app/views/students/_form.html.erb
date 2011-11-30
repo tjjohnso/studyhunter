@@ -1,9 +1,12 @@
 <%= form_for @student do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :university_id %><br />
-    <%= f.text_field :university_id %>
-  </p>
+
+  <%= f.fields_for :university do |university_form| %>
+    <p>
+      <%= university_form.label :name, "University Name" %><br />
+      <%= university_form.text_field :name  %>
+    </p>
+  <% end %>
   <p>
     <%= f.label :major %><br />
     <%= f.text_field :major %>

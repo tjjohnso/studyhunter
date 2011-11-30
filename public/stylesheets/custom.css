@@ -148,6 +148,7 @@ a.user_nav_button {
 #flash_error, #flash_alert {
   background-color: #FCC;
   border: solid 1px #C66;
+  color:red;            /* I put this here so the flash_notice text would show up. */
 }
 
 .fieldWithErrors {

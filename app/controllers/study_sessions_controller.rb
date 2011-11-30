@@ -1,4 +1,6 @@
 class StudySessionsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /study_sessions
   # GET /study_sessions.xml
   def index

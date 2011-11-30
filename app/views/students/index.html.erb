@@ -2,13 +2,17 @@
 
 <table>
   <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>University</th>
     <th>Major</th>
     <th>Rating</th>
   </tr>
   <% for student in @students %>
     <tr>
-      <td><%= student.university_id %></td>
+      <td><%= student.user.nil? ? "" : student.user.first_name %></td>
+      <td><%= student.user.nil? ? "" : student.user.last_name %></td>
+      <td><%= student.university.nil? ? "" : student.university.name %></td>
       <td><%= student.major %></td>
       <td><%= student.rating %></td>
       <td><%= link_to "Show", student %></td>
@@ -18,4 +22,10 @@
   <% end %>
 </table>
 
-<p><%= link_to "New Student", new_student_path %></p>
+<% if user_signed_in? %>
+  <% if current_user.student.nil? %>
+    <p><%= link_to "Become a Student", new_student_path %></p>
+  <% else %>
+    <p><%= link_to "Edit Student Details", edit_student_path(current_user.student.id) %></p>
+  <% end %>
+<% end %>

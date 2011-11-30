@@ -2,7 +2,7 @@
 
 <p>
   <strong>University:</strong>
-  <%= @student.university_id %>
+  <%= @student.university.nil? ? "" : @student.university.name %>
 </p>
 <p>
   <strong>Major:</strong>

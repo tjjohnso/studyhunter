@@ -1,4 +1,6 @@
-<h1>Listing project_instances</h1>
+<% title "Project Instances" %>
+
+<!--<h1>Listing project_instances</h1>-->
 
 <table>
   <tr>
@@ -15,13 +17,12 @@
 
 <% @project_instances.each do |project_instance| %>
   <tr>
-    <td><%= project_instance.name %></td>
+    <td><%= link_to project_instance.name, project_instance %></td>
     <td><%= project_instance.date_instantiated %></td>
     <td><%= project_instance.date_last_modified %></td>
     <td><%= project_instance.project_class_id %></td>
     <td><%= project_instance.owner_id %></td>
     <td><%= project_instance.description %></td>
-    <td><%= link_to 'Show', project_instance %></td>
     <td><%= link_to 'Edit', edit_project_instance_path(project_instance) %></td>
     <td><%= link_to 'Remove', project_instance, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

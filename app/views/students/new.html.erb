@@ -1,14 +1,14 @@
 <% title "Add Student Details" %>
 
-<% students = Student.find_all_by_user_id(current_user.id) %>
-<% if students.empty? %>
+<% student = current_user.student %>
+<% if student.nil? %>
   <%= render 'form' %>
 <% else %>
 
   <p>
   You have already created Student details for yourself.<br />
   If you would like to edit your student details, click the following link: <br />
-  <%= link_to "Edit Student Details", "/students/#{students.first.id}/edit"  %>
+  <%= link_to "Edit Student Details", edit_student_path(student)  %>
   </p>
 
   <p>

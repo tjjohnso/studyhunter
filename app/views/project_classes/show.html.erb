@@ -1,3 +1,5 @@
+<% title "Project" %>
+
 <!--<p id="notice"><%= notice %></p>-->
 
 <p>
@@ -7,12 +9,13 @@
 
 <p>
   <b>Creator:</b>
-  <%= @project_class.creator_id %>
+  <% creator = User.find(@project_class.creator_id) %>
+  <%= "#{creator.first_name} #{creator.last_name}" %>
 </p>
 
 <p>
   <b>Date created:</b>
-  <%= @project_class.date_created %>
+  <%= @project_class.created_at %>
 </p>
 
 <p>

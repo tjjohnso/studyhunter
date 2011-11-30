@@ -1,4 +1,6 @@
 class ProjectMembershipsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /project_memberships
   # GET /project_memberships.xml
   def index

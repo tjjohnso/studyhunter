@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20111129004346) do
 
   create_table "project_memberships", :force => true do |t|
     t.integer  "project_instance_id"
-    t.integer  "student_id"
+    t.integer  "user_id"
     t.string   "student_rights"
     t.datetime "created_at"
     t.datetime "updated_at"

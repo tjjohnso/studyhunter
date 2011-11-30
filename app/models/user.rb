@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
   has_many :roles, :through => :categorizations
   has_one :student
 
+  has_many :comments, :foreign_key => "author_id"
+
+  has_many :project_classes, :foreign_key => "creator_id"
+  has_many :project_memberships, :dependent => :destroy
+  has_many :project_instances, :through => :project_memberships
+
+  has_many :project_instances, :foreign_key => "owner_id"
+
   validates :first_name, :presence => true
   validates :last_name, :presence => true
 

@@ -1,10 +1,9 @@
-<h1>Listing project_classes</h1>
+<% title "Project Classes" %>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Creator</th>
-    <th>Date created</th>
     <th>Deadline or Target Date</th>
     <th>Description</th>
     <th></th>
@@ -14,12 +13,11 @@
 
 <% @project_classes.each do |project_class| %>
   <tr>
-    <td><%= project_class.name %></td>
-    <td><%= project_class.creator_id %></td>
-    <td><%= project_class.date_created %></td>
+    <td><%= link_to project_class.name, project_class %></td>
+    <% creator = User.find project_class.creator_id %>
+    <td><%= "#{creator.first_name} #{creator.last_name}" %></td>
     <td><%= project_class.end_date %></td>
     <td><%= project_class.description %></td>
-    <td><%= link_to 'Show', project_class %></td>
     <td><%= link_to 'Edit', edit_project_class_path(project_class) %></td>
     <td><%= link_to 'Remove', project_class, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

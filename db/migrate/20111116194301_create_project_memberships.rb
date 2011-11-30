@@ -2,7 +2,7 @@ class CreateProjectMemberships < ActiveRecord::Migration
   def self.up
     create_table :project_memberships do |t|
       t.integer :project_instance_id
-      t.integer :student_id
+      t.integer :user_id
       t.string :student_rights
 
       t.timestamps

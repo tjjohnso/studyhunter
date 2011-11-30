@@ -16,6 +16,20 @@
   <div class="field"><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
+  <div class="field">
+    <%= f.label :roles, "Edit your roles:" %>
+    <% for role in Role.all %>
+      <div>
+        <%= check_box_tag "user[role_ids][]", role.id, !current_user.student.nil?, :disabled => !role.functional  %>
+        <% if role.functional %>
+          <%= label_tag role.name %>
+        <% else %>
+          <%= label_tag role.name, "#{role.name} (Coming in Studyhunter 2.0!)", :class => "disabled_label" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="field"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password %></div>
 

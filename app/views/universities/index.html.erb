@@ -12,8 +12,7 @@
 
 <% @universities.each do |university| %>
   <tr>
-    <td><%= university.name %></td>
-    <td><%= link_to 'Show', university %></td>
+    <td><%= link_to university.name, university %></td>
     <td><%= link_to 'Edit', edit_university_path(university) %></td>
     <td><%= link_to 'Remove', university, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

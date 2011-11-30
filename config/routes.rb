@@ -1,30 +1,25 @@
 Studyhunter::Application.routes.draw do
-  resources :assignments
-
-  resources :students
 
   # I temporarily set the root page to be list of locations. We can change it later.
   root :to => "locations#index"
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 
-  # devise_for :users
-
+  resources :assignments
+  resources :students
   resources :project_memberships
-
   resources :study_sessions
-
   resources :project_instances
-
   resources :locations
-
   resources :comments
-
   resources :project_classes
-
   resources :courses
-
   resources :universities
+
+  match "projects/:id/edit" => "project_classes#edit"
+  match "projects/new" => "project_classes#new"
+  match "projects/" => "project_classes#index"
+  match "projects/:id" => "project_classes#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
