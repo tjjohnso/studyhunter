@@ -8,7 +8,26 @@
 	color: #bda;
 }
 
-
+#user_submit
+{
+	background-image:url('../images/smalldarkblue1.png');
+	border:0px;
+	font-family: cool_font;
+	color: #bda;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
+#user_submit:hover
+{
+background-image:url('../images/smalldarkblue2.png');
+	
+}
+#user_submit:active
+{
+background-image:url('../images/smalldarkblue1.png');
+	
+}
 body {
 	background: #000;
 }
@@ -54,14 +73,17 @@ h2
 }
 
 /*Links*/ 
-
+b
+{
+	font-family: cool_font;
+}
 a {
 	text-decoration: none;
 	color:#038;
 }
 
 a:hover {
-	
+	color:#05a;
 }
 
 a:visited {
@@ -95,11 +117,21 @@ a:visited {
 #menu th:hover{
 	background-image:url('../images/darkgray2.png');
 	
-	color: #05a;
+	color: #049;
 }
+#menu th:active{
+	background-image:url('../images/darkgray1.png');
+	
+	color: #038;
+}
+
 #menu th a:hover{
 	
-	color: #05a;
+	color: #049;
+}
+#menu th a:active{
+	
+	color: #038;
 }
 
 nav {
@@ -129,11 +161,10 @@ nav ul li a {
 }
 
 nav ul li a:visited {
-	color: #128;
+	color: #bda;
 }
 
 nav ul li a:hover {
-	color: #aaa;
 	text-decoration: underline;
 }
 
@@ -147,11 +178,22 @@ a.user_nav_button {
   text-align: center;
 /*  width: 190px;*/
   color: #fff;
-  background-image: #bda;
+  background-image: url('../images/smalldarkblue1.png');
   font-size: 100%;
-  font-weight: bold;
+  font-family: cool_font;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+a.user_nav_button:hover
+{
+  background-image: url('../images/smalldarkblue2.png');
+	
+}
+a.user_nav_button:active
+{
+  background-image: url('../images/smalldarkblue1.png');
+	
 }
 
 .round {
