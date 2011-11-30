@@ -2,7 +2,7 @@
 
 <!--<h1>Listing locations</h1>-->
 
-<table style="background:#000">
+<table id="list">
   <tr>
     <th>Name</th>
     <th>Street</th>
@@ -15,12 +15,10 @@
     -->
     <th>Amenities</th>
     <th>Overall rating</th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @locations.each do |location| %>
-  <tr style="color:black">
+  <tr>
     <td><%= link_to location.name, location %></td>
     <td><%= location.street %></td>
     <td><%= location.city %></td>
@@ -41,4 +39,7 @@
 <br />
 
 <%= link_to 'New Location', new_location_path %>
+
+<div style="width:100%;padding-left: 100px">
 <%= gmaps4rails(@json) %>
+</div>
