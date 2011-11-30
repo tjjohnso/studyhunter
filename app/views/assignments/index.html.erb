@@ -5,24 +5,26 @@
     <th>Project Class</th>
     <th>University</th>
     <th>Course</th>
+    <th></th>
   </tr>
   <% for assignment in @assignments %>
     <tr>
       <td><%= assignment.project_class_id %></td>
       <td><%= assignment.university_id %></td>
       <td><%= assignment.course_id %></td>
-      <td><%= link_to "Show", assignment %></td>
-      <% if ( !assignment.project_class.nil? and !assignment.project_class.creator.nil? ) %>
-        <% if current_user == assignment.project_class.creator %>
-          <td><%= link_to "Edit", edit_assignment_path(assignment) %></td>
-          <td><%= link_to "Destroy", assignment, :confirm => 'Are you sure?', :method => :delete %></td>
-        <% else %>
-          <td></td>
-          <td></td>
+      <td>
+        <%= link_to "Show", assignment %>
+        <% if ( !assignment.project_class.nil? and !assignment.project_class.creator.nil? ) %>
+          <% if current_user == assignment.project_class.creator %>
+            <%= link_to "Edit", edit_assignment_path(assignment) %>
+            <%= link_to "Remove", assignment, :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
         <% end %>
-      <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Assignment", new_assignment_path %></p>
+<% if user_signed_in? %>
+  <p><%= link_to "New Assignment", new_assignment_path %></p>
+<% end %>

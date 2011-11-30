@@ -8,14 +8,9 @@
     <th>Street</th>
     <th>City</th>
     <th>Country</th>
-    <!--
-    <th>Longitude</th>
-    <th>Latitude</th>
-    <th>Gmaps</th>
-    -->
     <th>Amenities</th>
     <th>Overall rating</th>
-    <th>Edit</th>
+    <th></th>
   </tr>
 
 <% @locations.each do |location| %>
@@ -39,7 +34,9 @@
 
 <br />
 
-<a id="user_submit" href="<%= new_location_path %>">Add New Location</a>
+<% if user_signed_in? %>
+  <a id="user_submit" href="<%= new_location_path %>">Add New Location</a>
+<% end %>
 
 <div style="width:100%;padding-left: 100px">
 <%= gmaps4rails(@json) %>

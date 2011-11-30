@@ -35,4 +35,6 @@
 
 <br />
 
-<a id="user_submit" href="<%= new_project_class_path %>">Create New Project</a>
+<% if user_signed_in? %>
+  <a id="user_submit" href="<%= new_project_class_path %>">Create New Project</a>
+<% end %>

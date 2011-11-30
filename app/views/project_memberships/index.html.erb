@@ -8,8 +8,6 @@
     <th>Student</th>
     <th>Student rights</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @project_memberships.each do |project_membership| %>
@@ -22,9 +20,9 @@
       <%# if current_user == project_class.creator %>
         <!--<td><%#= link_to 'Edit', edit_project_membership_path(project_membership) %></td>-->
         <!--<td><%#= link_to 'Remove', project_membership, :confirm => 'Are you sure?', :method => :delete %></td>-->
-      <%# else %>
-        <td></td>
-        <td></td>
+      <!--<%# else %>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
       <%# end %>
     <%# end %>
   </tr>
@@ -33,4 +31,6 @@
 
 <br />
 
-<%= link_to 'New Project membership', new_project_membership_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Project membership', new_project_membership_path %>
+<% end %>

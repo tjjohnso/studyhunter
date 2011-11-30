@@ -1,0 +1,8 @@
+<div class="comment">
+  <div class="comment_header">
+    <strong>On <%= comment.readable_created_at %> <%= "#{comment.author.name} says" unless comment.author.nil? %></strong><br />
+  </div>
+  <div class="comment_body">
+    <%= comment.body %>
+  </div>
+</div>

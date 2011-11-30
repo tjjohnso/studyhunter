@@ -37,23 +37,26 @@
   <h4>Projects You've Created:</h4>
 </p>
 <p>
-  <% project_classes = ProjectClass.where("project_classes.creator_id => #{current_user.id}") %>
-  <% if !project_classes.nil? %>
+  <% project_classes = ProjectClass.where("project_classes.creator_id = #{current_user.id}") %>
+  <% if project_classes.nil? %>
     None at the moment...
   <% else %>
     <table>
       <tr>
         <th>Name</th>
         <th>Description</th>
+        <th>Created</th>
         <th>Status</th>
       </tr>
       <% project_classes.each do |project_class| %>
         <tr>
           <td><%= link_to project_class.name, project_class %></td>
           <td><%= project_class.description %></td>
+          <td><%= project_class.readable_created_at %></td>
+
           <% end_date = project_class.end_date %>
           <td>
-            <% !if end_date.nil? %>
+            <% if !end_date.nil? %>
               <%= end_date.past? ? "End date was #{project_class.readable_end_date}" : "Active until #{project_class.readable_end_date}" %>
             <% end %>
           </td>
@@ -65,23 +68,25 @@
   <h4>Project Instances You Own:</h4>
 </p>
 <p>
-  <% project_instances = ProjectInstance.where("project_classes.owner_id => #{current_user.id}") %>
-  <% if !project_instances.nil? %>
+  <% project_instances = ProjectInstance.where("project_instances.owner_id = #{current_user.id}") %>
+  <% if project_instances.nil? %>
     None at the moment...
   <% else %>
     <table>
       <tr>
         <th>Name</th>
         <th>Description</th>
+        <th>Created</th>
         <th>Status</th>
       </tr>
       <% project_instances.each do |project_instance| %>
         <tr>
           <td><%= link_to project_instance.name, project_instance %></td>
           <td><%= project_instance.description %></td>
+          <td><%= project_instance.readable_created_at %></td>
           <% end_date = project_instance.end_date %>
           <td>
-            <% !if end_date.nil? %>
+            <% if !end_date.nil? %>
               <%= end_date.past? ? "End date was #{project_instance.readable_end_date}" : "Active until #{project_instance.readable_end_date}" %>
             <% end %>
           </td>

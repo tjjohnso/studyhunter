@@ -42,17 +42,25 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-    @comment = Comment.new(params[:comment])
-
+    @comment = Comment.create!(params[:comment])
+    #flash[:notice] = "Thank you for commenting!"
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-      end
+      format.html { redirect_to @comment.project_instance }
+      format.js
     end
+    #@comment = Comment.new(params[:comment])
+    #
+    #respond_to do |format|
+    #  if @comment.save
+    #    format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
+    #    format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+    #    format.js
+    #  else
+    #    format.html { render :action => "new" }
+    #    format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+    #    format.js
+    #  end
+    #end
   end
 
   # PUT /comments/1

@@ -9,30 +9,29 @@
     <th>Author</th>
     <th>Date created</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.body %></td>
     <td><%= comment.project_instance_id %></td>
-    <td><%= comment.author_id %></td>
+    <td><%= comment.author.name unless comment.author.nil? %></td>
     <td><%= comment.date_created %></td>
-    <td><%= link_to 'Show', comment %></td>
-    <% if ( !comment.author.nil? ) %>
-      <% if current_user == comment.author %>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Remove', comment, :confirm => 'Are you sure?', :method => :delete %></td>
-      <% else %>
-        <td></td>
-        <td></td>
+    <td>
+      <%= link_to 'Show', comment %>
+      <% if ( !comment.author.nil? ) %>
+        <% if current_user == comment.author %>
+          <%= link_to 'Edit', edit_comment_path(comment) %>
+          <%= link_to 'Remove', comment, :confirm => 'Are you sure?', :method => :delete %>
+        <% end %>
       <% end %>
-    <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Comment', new_comment_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Comment', new_comment_path %>
+<% end %>
