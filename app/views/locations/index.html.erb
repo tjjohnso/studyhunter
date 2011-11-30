@@ -19,6 +19,11 @@
     <td><%= location.street %></td>
     <td><%= location.city %></td>
     <td><%= location.country %></td>
+    <!--
+    <td><%= location.longitude %></td>
+    <td><%= location.latitude %></td>
+    <td><%= location.gmaps %></td>
+    -->
     <td><%= location.amenities %></td>
     <td><%= location.overall_rating %></td>
     <td><%= link_to 'Edit', edit_location_path(location) if user_signed_in? %></td>
@@ -30,7 +35,7 @@
 <br />
 
 <% if user_signed_in? %>
-  <%= link_to 'New Location', new_location_path %>
+  <a id="user_submit" href="<%= new_location_path %>">Add New Location</a>
 <% end %>
 
 <div style="width:100%;padding-left: 100px">

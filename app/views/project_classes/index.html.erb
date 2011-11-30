@@ -1,6 +1,6 @@
 <% title "Project Classes" %>
 
-<table>
+<table id="list">
   <tr>
     <th>Name</th>
     <th>Creator</th>
@@ -17,17 +17,18 @@
     <td><%= "#{creator.first_name} #{creator.last_name}" %></td>
     <td><%= project_class.readable_end_date %></td>
     <td><%= project_class.description %></td>
-    <td>
-      <% if user_signed_in? %>
-        <%= link_to "Instantiate!", new_project_instance_path(:project_class_id => project_class.id) %> * | *
+    <% if user_signed_in? %>
+      <td><%= link_to "Instantiate!", new_project_instance_path(:project_class_id => project_class.id) %></td>
+    <% end %>
+    <% if ( !project_class.creator.nil? ) %>
+      <% if current_user == project_class.creator %>
+        <td><%= link_to 'Edit', edit_project_class_path(project_class) %></td>
+        <td><%= link_to 'Remove', project_class, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% else %>
+        <td></td>
+        <td></td>
       <% end %>
-      <% if ( !project_class.creator.nil? ) %>
-        <% if current_user == project_class.creator %>
-          <%= link_to 'Edit', edit_project_class_path(project_class) %> * | *
-          <%= link_to 'Remove', project_class, :confirm => 'Are you sure?', :method => :delete %>
-        <% end %>
-      <% end %>
-    </td>
+    <% end %>
   </tr>
 <% end %>
 </table>
@@ -35,5 +36,5 @@
 <br />
 
 <% if user_signed_in? %>
-  <%= link_to 'New Project', new_project_class_path %>
+  <a id="user_submit" href="<%= new_project_class_path %>">Create New Project</a>
 <% end %>
