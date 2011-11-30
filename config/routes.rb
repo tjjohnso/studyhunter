@@ -21,6 +21,13 @@ Studyhunter::Application.routes.draw do
   match "projects/" => "project_classes#index"
   match "projects/:id" => "project_classes#show"
 
+  devise_scope :user do
+    get "sign_in", :to => "devise/sessions#new"
+    get "sign_up", :to => "registrations#new"
+    get "edit_account", :to => "registrations#edit"
+    get "my_account", :to => "registrations#show"
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

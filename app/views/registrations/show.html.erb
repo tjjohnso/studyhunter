@@ -1,0 +1,95 @@
+<% title "My Account" %>
+
+<p>
+  <h3>General Details</h3>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= "#{current_user.first_name} #{current_user.last_name}" %>
+</p>
+<p>
+  <strong>Email Address:</strong>
+  <%= current_user.email %>
+</p>
+
+<% if !current_user.student.nil? && current_user.role_names.include?("student") %>
+  <p>
+    <h3>Student Details</h3>
+  <p>
+  <p>
+    <strong>University:</strong>
+    <%= current_user.student.university.nil? ? "" : current_user.student.university.name %>
+  </p>
+  <p>
+    <strong>Major:</strong>
+    <%= current_user.student.major %>
+  </p>
+  <p>
+    <strong>Student Rating:</strong>
+    <%= current_user.student.rating %>
+  </p>
+<% end %>
+
+<p>
+  <h3>Project Details</h3>
+</p>
+<p>
+  <h4>Projects You've Created:</h4>
+</p>
+<p>
+  <% project_classes = ProjectClass.where("project_classes.creator_id => #{current_user.id}") %>
+  <% if !project_classes.nil? %>
+    None at the moment...
+  <% else %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+      <% project_classes.each do |project_class| %>
+        <tr>
+          <td><%= link_to project_class.name, project_class %></td>
+          <td><%= project_class.description %></td>
+          <% end_date = project_class.end_date %>
+          <td>
+            <% !if end_date.nil? %>
+              <%= end_date.past? ? "End date was #{project_class.readable_end_date}" : "Active until #{project_class.readable_end_date}" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</p><p>
+  <h4>Project Instances You Own:</h4>
+</p>
+<p>
+  <% project_instances = ProjectInstance.where("project_classes.owner_id => #{current_user.id}") %>
+  <% if !project_instances.nil? %>
+    None at the moment...
+  <% else %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+      <% project_instances.each do |project_instance| %>
+        <tr>
+          <td><%= link_to project_instance.name, project_instance %></td>
+          <td><%= project_instance.description %></td>
+          <% end_date = project_instance.end_date %>
+          <td>
+            <% !if end_date.nil? %>
+              <%= end_date.past? ? "End date was #{project_instance.readable_end_date}" : "Active until #{project_instance.readable_end_date}" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</p>
+<p>
+  <%= link_to "Edit User Details", edit_user_registration_path %>
+</p>

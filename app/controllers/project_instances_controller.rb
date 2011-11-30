@@ -26,12 +26,25 @@ class ProjectInstancesController < ApplicationController
   # GET /project_instances/new
   # GET /project_instances/new.xml
   def new
-    current_time = Time.now
-    beginning_of_hour = current_time.change(:hour => current_time.hour)
-    beginning_of_next_hour = beginning_of_hour - 4.hours # Include offset for EST -0500
-    initialized_end_date = beginning_of_next_hour + 1.week
-    @project_instance = ProjectInstance.new(:end_date => initialized_end_date)
+    if !params[:project_class_id].nil?
+      @project_instance = ProjectInstance.new
 
+      # Build and initialize project_class association.
+      @project_instance.build_project_class
+      project_class = ProjectClass.find params[:project_class_id]
+      @project_instance.project_class = project_class
+
+      # Get default attributes from the project_class.
+      inherited_attributes = { :name => project_class.name, :description => project_class.description  }
+      inherited_attributes[:end_date] = project_class.end_date unless project_class.end_date.nil?
+      @project_instance.attributes = inherited_attributes
+
+      flash.now[:notice] = "The fields have been prepopulated for you.
+                           Feel free to edit the details for your particular instance."
+    else
+      initialized_end_date = week_from_now
+      @project_instance = ProjectInstance.new(:end_date => initialized_end_date)
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @project_instance }

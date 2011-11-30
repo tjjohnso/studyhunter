@@ -26,10 +26,7 @@ class ProjectClassesController < ApplicationController
   # GET /project_classes/new
   # GET /project_classes/new.xml
   def new
-    current_time = Time.now
-    beginning_of_hour = current_time.change(:hour => current_time.hour)
-    beginning_of_next_hour = beginning_of_hour - 4.hours # Include offset for EST -0500
-    initialized_end_date = beginning_of_next_hour + 1.week
+    initialized_end_date = week_from_now
     @project_class = ProjectClass.new(:end_date => initialized_end_date)
 
     respond_to do |format|
@@ -51,7 +48,7 @@ class ProjectClassesController < ApplicationController
 
     respond_to do |format|
       if @project_class.save
-        format.html { redirect_to(@project_class, :notice => 'Project class was successfully created.') }
+        format.html { redirect_to(@project_class, :notice => 'Project was successfully created.') }
         format.xml  { render :xml => @project_class, :status => :created, :location => @project_class }
       else
         format.html { render :action => "new" }
@@ -67,7 +64,7 @@ class ProjectClassesController < ApplicationController
 
     respond_to do |format|
       if @project_class.update_attributes(params[:project_class])
-        format.html { redirect_to(@project_class, :notice => 'Project class was successfully updated.') }
+        format.html { redirect_to(@project_class, :notice => 'Project was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
