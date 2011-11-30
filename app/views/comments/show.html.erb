@@ -9,17 +9,17 @@
 
 <p>
   <b>Project instance:</b>
-  <%= @comment.project_instance_id %>
+  <%= @comment.project_instance.name unless @comment.project_instance.nil? %>
 </p>
 
 <p>
   <b>Author:</b>
-  <%= @comment.author_id %>
+  <%= @comment.author.name unless @comment.author.nil? %>
 </p>
 
 <p>
   <b>Date created:</b>
-  <%= @comment.date_created %>
+  <%= @comment.created_at %>
 </p>
 
 

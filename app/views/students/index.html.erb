@@ -15,13 +15,13 @@
       <td><%= student.university.nil? ? "" : student.university.name %></td>
       <td><%= student.major %></td>
       <td><%= student.rating %></td>
-      <% if ( !student.user.nil? ) %>
-        <% if current_user == student.user %>
-          <td><%= link_to "Edit", edit_student_path(student) %></td>
-        <% else %>
-          <td></td>
+      <td>
+        <% if ( !student.user.nil? ) %>
+          <% if current_user == student.user %>
+            <%= link_to "Edit", edit_student_path(student) %>
+          <% end %>
         <% end %>
-      <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

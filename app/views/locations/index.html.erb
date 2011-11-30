@@ -8,13 +8,9 @@
     <th>Street</th>
     <th>City</th>
     <th>Country</th>
-    <!--
-    <th>Longitude</th>
-    <th>Latitude</th>
-    <th>Gmaps</th>
-    -->
     <th>Amenities</th>
     <th>Overall rating</th>
+    <th></th>
   </tr>
 
 <% @locations.each do |location| %>
@@ -23,11 +19,6 @@
     <td><%= location.street %></td>
     <td><%= location.city %></td>
     <td><%= location.country %></td>
-    <!--
-    <td><%= location.longitude %></td>
-    <td><%= location.latitude %></td>
-    <td><%= location.gmaps %></td>
-    -->
     <td><%= location.amenities %></td>
     <td><%= location.overall_rating %></td>
     <td><%= link_to 'Edit', edit_location_path(location) if user_signed_in? %></td>
@@ -38,7 +29,9 @@
 
 <br />
 
-<%= link_to 'New Location', new_location_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Location', new_location_path %>
+<% end %>
 
 <div style="width:100%;padding-left: 100px">
 <%= gmaps4rails(@json) %>

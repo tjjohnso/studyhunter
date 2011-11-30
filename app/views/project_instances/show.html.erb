@@ -24,7 +24,7 @@
 
 <p>
   <b>Project class:</b>
-  <%= @project_instance.project_class_id %>
+  <%= @project_instance.project_class.name unless @project_instance.project_class.nil? %>
 </p>
 
 <p>
@@ -36,6 +36,24 @@
   <b>Deadline or Target Date:</b>
   <%= @project_instance.readable_end_date if !@project_instance.end_date.nil? %>
 </p>
+
+<p>
+  <h3 id="comments_count"><%= pluralize(@project_instance.comments.size, "Comment") %></h3>
+</p>
+
+<div id="comments">
+  <%= render @project_instance.comments %>
+</div>
+
+<h4>Add a Comment:</h4>
+<%= form_for Comment.new(:project_instance => @project_instance) do |f| %>
+  <%= f.hidden_field :project_instance_id %>
+  <%= f.hidden_field :author_id, :value => current_user.id %>
+  <p>
+    <%= f.text_area :body, :rows => 4 %>
+  </p>
+  <p><%= f.submit "Add Comment" %></p>
+<% end %>
 
 <% if ( !@project_instance.owner.nil? ) %>
   <% if current_user == @project_instance.owner %>
