@@ -34,7 +34,7 @@
   <h3>Project Details</h3>
 </p>
 <p>
-  <h3>Projects You've Created:</h3>
+  <h4>Projects You've Created:</h4>
 </p>
 <p>
   <% project_classes = ProjectClass.where("project_classes.creator_id => #{current_user.id}") %>
@@ -55,6 +55,34 @@
           <td>
             <% !if end_date.nil? %>
               <%= end_date.past? ? "End date was #{project_class.readable_end_date}" : "Active until #{project_class.readable_end_date}" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</p><p>
+  <h4>Project Instances You Own:</h4>
+</p>
+<p>
+  <% project_instances = ProjectInstance.where("project_classes.owner_id => #{current_user.id}") %>
+  <% if !project_instances.nil? %>
+    None at the moment...
+  <% else %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+      <% project_instances.each do |project_instance| %>
+        <tr>
+          <td><%= link_to project_instance.name, project_instance %></td>
+          <td><%= project_instance.description %></td>
+          <% end_date = project_instance.end_date %>
+          <td>
+            <% !if end_date.nil? %>
+              <%= end_date.past? ? "End date was #{project_instance.readable_end_date}" : "Active until #{project_instance.readable_end_date}" %>
             <% end %>
           </td>
         </tr>
