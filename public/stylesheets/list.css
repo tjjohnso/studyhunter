@@ -2,8 +2,11 @@
 	background:#026;
 }
 
+.list table tr:nth-child(even) {
+    background-color: #037;
+}
+
 .list table tr{
-	background-image:url('../images/darkgray3.png');
 	font-family: Bangers;
 	text-shadow: #000 0.1em 0.1em 0.2em,-1px 0 #000, 0 1px #000,
       1px 0 #000, 0 -1px #000;
@@ -12,19 +15,12 @@
 }
 
 
-
-
-.list table tr td:nth-child(even) {
-    background-color: #037;
-}
-
 .list table tr th{
 	border:1px solid black;
 	text-align:center;
 }
 
 .list table tr td{
-	background:#026;
 	color:#bda;
 	font-family: Yanone Kaffeesatz;
 	font-size: 18px;
@@ -33,5 +29,6 @@
 .list table tr td a{
 	color:#bda;
 	font-family:Bangers;
+	font-size:25px;
 }
 

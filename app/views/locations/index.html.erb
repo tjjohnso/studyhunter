@@ -3,7 +3,7 @@
 <!--<h1>Listing locations</h1>-->
 
 <table id="list">
-  <tr>
+<!--  <tr>
     <th>Name</th>
     <th>Street</th>
     <th>City</th>
@@ -12,23 +12,30 @@
     <th>Overall rating</th>
     <th></th>
   </tr>
-
+-->
 <% @locations.each do |location| %>
-  <tr>
-    <td><%= link_to location.name, location %></td>
-    <td><%= location.street %></td>
-    <td><%= location.city %></td>
-    <td><%= location.country %></td>
-    <!--
-    <td><%= location.longitude %></td>
-    <td><%= location.latitude %></td>
-    <td><%= location.gmaps %></td>
-    -->
-    <td><%= location.amenities %></td>
-    <td><%= location.overall_rating %></td>
+<tr>
+<td width="200px" style="text-align:center">
+<%= link_to location.name, location %>
+<div>
+
+<%= link_to  image_tag("logo"), location.name %>
+<img  height="100px" src="http://cbk0.google.com/cbk?output=thumbnail&w=90&h=68&ll=<%=location.latitude%>,<%=location.longitude%>&thumb=0"/>
+
+</div>
+</td>
+<td>
+<b>Description:</b><br/> 
+    <b>Adress:</b> <%= location.street %><br/>
+  <b>City:</b> <%= location.city %><br/>
+    
+    <b>Amenities:</b> <%= location.amenities %>
+   <br/> <b>Rating:</b> <%= location.overall_rating %>
     <td><%= link_to 'Edit', edit_location_path(location) if user_signed_in? %></td>
-    <!--<td><%#= link_to 'Remove', location, :confirm => 'Are you sure?', :method => :delete %></td>-->
-  </tr>
+
+</td>
+</tr>
+
 <% end %>
 </table>
 
